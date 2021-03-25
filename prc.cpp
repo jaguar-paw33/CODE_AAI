@@ -8,8 +8,8 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int a ;
-	cin >> a;
-	cout << a << endl;
+	int a, b;
+	scanf("%2d%3d", &a, &b);
+	cout << a << " " << b << endl;
 	return 0;
 }
