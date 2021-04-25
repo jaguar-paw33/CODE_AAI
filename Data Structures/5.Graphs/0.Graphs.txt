@@ -1,0 +1,26 @@
+Graphs - G(V,E), where V is the set of Vertices and E is the set of Edges.
+
+|V| = n and |E| = m
+
+In an Undirected Graph (u1<->u2) with n vertices, the maximum number of edges can be n(n-1)/2. Hence, the maximum number of edges in a graph is of the order O(n^2).
+
+In a connected undirected graph with n vertices, the minimum number of edges must be n-1 i.e. |E|>=n-1.
+
+When we have a Dense Graph (having a large number of Edges) then it is better to store it in the form of Adjacency Matrix(nXn) with space complexity of O(n^2).
+
+When we have a Sparse Graph (m<<n^2), it is better to use Adjacency List (an array of size n where each component stores another array/linke-list which contains the vertices to which the vertex corresponding to current component has an edge). The space complexity is O(n+m), where n is the size of the adjacency list and m is the number of edges which corresponds to the total vertices that are present in the arrays connected to each component of the Adjacency List.
+
+---> Connectivity in Undirected Graphs -
+
+1. Connected Graph - A graph in which we have a path between every pair of vertices.
+2. Connected Components - Connected Subgraphs of a Graph which are disconnected from each other are called the Connected Components.
+3. Cut Edge / Bridge - An edge whose removal increases the number of connected components in a graph is called Bridge.
+4. Cut Vertex / Articulation Point - A vertex whose removal increases the number of connected components in a Graph is called Cut Vertex.
+5. Bi-Connected Graph - A graph which remains connected even after the removal of a sinlge vertex is called Bi-Connected Graph.
+
+---> Connectivity in Directed Graph (Di-Graph) -
+
+1. Strong Connected Graph - When there is a directed path between every pair of edges.
+2. Strongly Connected Components - Strongly Connected Subgraphs which are disconnected from each other in a Di-Graph.
+3. Weakly Connected Graph - When the directions in a Di-Graph are ignored and the graph so formed after removing the directions is connected then such a Di-Graph is called the Weakly Connected Graph.
+4. Weakly Connected Components - Connected components formed in a Di-Graph after ignoring the directions are called the Weakly Connected Components.
