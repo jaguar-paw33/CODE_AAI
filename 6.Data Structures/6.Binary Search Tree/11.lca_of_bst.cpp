@@ -47,14 +47,29 @@ Sample Output 3:
 using namespace std;
 
 binaryTreeNode<int> * lca(binaryTreeNode<int> * root, int a, int b) {
-
+	if (!root)
+		return NULL;
+	if (root->data == a || root->data == b || (root->data < a && root->data > b) || (root->data > a && root->data < b))
+		return root;
+	binaryTreeNode<int> * ans = NULL;
+	if (root->data > a && root->data > b) {
+		ans = lca(root->left, a, b);
+	}
+	if (root->data < a && root->data < b) {
+		ans = lca(root->right, a, b);
+	}
+	return ans;
 }
 
 int main() {
 	binaryTreeNode<int> * root = takeInput();
 	int a, b;
 	cin >> a >> b;
-	lcs(root, a, b);
+	binaryTreeNode<int> * ans = lca(root, a, b);
+	if (!ans)
+		cout << "No LCA is present" << endl;
+	else
+		cout << ans->data << endl;
 	delete root;
 	return 0;
 }
