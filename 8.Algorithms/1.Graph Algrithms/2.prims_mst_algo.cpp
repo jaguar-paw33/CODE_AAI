@@ -11,15 +11,17 @@ using namespace std;
 
 int findMinVertex(int * weights, bool * visited, int n) {
 
-// To find minimum weight vetrtex we should use min pririty queue with some modfications
+// To find minimum weight vertex we should use min pririty queue with some modfications
 
 	int minVertex = -1;
+	int minVertexWeight = INT_MAX;
 
 	for (int i = 0; i < n; i++) {
-		if (!visited[i] && (minVertex == -1 || weights[i] < weights[minVertex])) {
+		if (!visited[i] && minVertexWeight > weights[i]) {
 			minVertex = i;
 		}
 	}
+	
 	return minVertex;
 }
 
@@ -38,9 +40,12 @@ void prims(int ** edges, int n) {
 
 	weights[0] = 0;
 
-	for (int i = 0; i < n; i++) {
+	while(true) {
 
 		int minVertex = findMinVertex(weights, visited, n);
+		if(minVertex==-1)
+			break;
+			
 		visited[minVertex] = true;
 
 		for (int j = 0; j < n; j++) {
@@ -56,7 +61,10 @@ void prims(int ** edges, int n) {
 	for (int i = 1; i < n; i++) {
 		cout << min(parents[i], i) << " " << max(parents[i], i) << " " << weights[i] << endl;
 	}
-	return;
+	
+	delete [] visited;
+	delete [] parents;
+	delete [] weights;
 }
 
 
