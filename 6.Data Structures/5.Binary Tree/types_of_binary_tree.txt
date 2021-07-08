@@ -1,0 +1,18 @@
+1. Full Binary Tree -> Every Node has 0 or 2 Children i.e. no node has 1 child.
+	
+	Max Nodes - 2^(h+1)-1
+	Min Nodes - 2h+1
+
+2. Complete Binary Tree -> Except the last level the tree is completely filled and in the last level the leaver are present from left to right. The completely filled tree having the last level completely filled from left to right is also a complete binary tree. 
+
+	Number of Internal Nodes - floor(n/2)
+
+3. Perfect Binary Tree -> All Internal(Non-Leaf) Nodes have 2 children and all leaves are at same level.
+
+	Max Nodes - 2^(h+1)-1
+	Min Nodes - 
+	Number of Leaf Nodes - 2^h
+	Number of Internal Nodes - 2^h-1
+
+
+4. Balanced Binary Tree -> abs(height of left subtree - height of right subtree)<=1.
