@@ -38,6 +38,8 @@ Sample Output 2:
 #include<iostream>
 using namespace std;
 
+
+// This approach may result in overflow
 int duplicate(int * arr, int n) {
 	int s = ((n - 2) * (n - 1)) / 2;
 	int sum = 0;
@@ -47,6 +49,37 @@ int duplicate(int * arr, int n) {
 	}
 
 	return sum - s;
+}
+
+// This approach is best but only applicable when we have the number repeating only twice
+int duplicateNumber(int *arr, int size)
+{
+    int ans = 0;
+    for(int i=0;i<size;i++){
+        ans^=arr[i];
+    }
+    for(int i=1;i<=size-2;i++){
+        ans^=i;
+    }
+    return ans;
+}
+
+// This approach works for the number with any number of repetitions, the only condition is that the number should lie from 0 to n-1.
+int findDuplicate(int * arr, int n) {
+
+	int ans;
+
+	for(int i=0;i<n;i++){
+		if(nums[abs(nums[i])]>=0){
+			nums[abs(nums[i])]*=-1;
+		}else{
+			ans =  abs(nums[i]);
+		break;
+		}
+	} 
+
+	return ans;
+
 }
 
 int main() {

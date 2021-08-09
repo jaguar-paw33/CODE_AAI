@@ -1,5 +1,5 @@
 
-// Compute the shortest distance from a source node to a destination node
+// Compute the shortest distance from a source node to a destination node with non-negtaive weights
 
 // Time Complexity - O((n+m)logn) using prioirty queue and adjacency list
 // Space Complexity - O(n)
