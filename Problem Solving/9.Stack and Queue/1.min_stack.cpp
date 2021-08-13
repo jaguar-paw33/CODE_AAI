@@ -42,4 +42,70 @@ Practise Problem Link - https://leetcode.com/problems/min-stack/
 */
 
 
+#include<bits/stdc++.h>
+using namespace std;
 
+class MinStack {
+
+	long * arr;
+	int size;
+	int next;
+	long min_element;
+
+public:
+	MinStack() {
+		size = 30001;
+		arr = new long [size];
+		next = 0;
+	}
+
+	void push(int val) {
+
+		if (!next) {
+			min_element = val;
+			arr[next++] = val;
+		} else if (min_element <= val) {
+			arr[next++] = val;
+		} else {
+			arr[next++] = long(2) * val - min_element;
+			min_element = val;
+		}
+
+	}
+
+	void pop() {
+		long top_element = arr[next-- - 1];
+		if (top_element < min_element) {
+			min_element = 2 * min_element - top_element;
+		}
+	}
+
+	int top() {
+		if (arr[next - 1] < min_element) {
+			return min_element;
+		} else {
+			return arr[next - 1];
+		}
+	}
+
+	int getMin() {
+		return min_element;
+	}
+};
+
+
+int main() {
+	MinStack* obj = new MinStack();
+	obj->push(3);
+	obj->push(4);
+	obj->push(2);
+	obj->push(-1);
+	obj->push(6);
+	obj->push(1);
+
+	obj->pop();
+
+	cout << obj->getMin() << endl;
+
+	return 0;
+}
